@@ -1,0 +1,5 @@
+<app-header *ngIf="!(_router.url === '/auth/login' || _router.url === '/not_found')"></app-header>
+<app-sidebar *ngIf="!(_router.url === '/auth/login' || _router.url === '/not_found')"></app-sidebar>
+    <router-outlet></router-outlet>
+<app-footer *ngIf="!(_router.url === '/auth/login' || _router.url === '/not_found')"></app-footer>
+

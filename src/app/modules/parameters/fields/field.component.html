@@ -1,0 +1,168 @@
+<main id="main" class="main">
+  <div class="card-body d-flex justify-content-center" *ngIf="cargando">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden text-center">Loading...</span>
+    </div>
+  </div>
+
+  <div class="pagetitle">
+    <h1>List fields</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item">Tables</li>
+        <li class="breadcrumb-item active">Data</li>
+      </ol>
+    </nav>
+  </div>
+  <section class="section" *ngIf="!cargando">
+    <div class="row">
+      <div class="col-lg-12 p-2">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-end w-auto m-2">
+              <div class="text-right">
+                <button class="btn btn-success w-auto" (click)="open(mymodal)">
+                  <i
+                    class="bi bi-plus-circle-fill"
+                    style="font-size: 1.2em"
+                  ></i>
+                  ADD LOCATION
+                </button>
+              </div>
+            </div>
+            <table class="table datatable">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Field Type</th>
+                  <th scope="col">Field Characteristic</th>
+                  <th scope="col">Field Location</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of fields">
+                  <th scope="row">{{ item.id }}</th>
+                  <td>{{ item.field_type }}</td>
+                  <td>{{ item.field_characteristic }}</td>
+                  <td>{{ item.field_location }}</td>
+
+                  <td
+                    class="d-flex text-center justify-content-start w-auto text-nowrap"
+                  >
+                    <a
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      title="editar"
+                      class="d-block cursor mx-2"
+                      routerLink="/parameters/field-edit/{{ item.id }}"
+                    >
+                      <i
+                        class="bi bi-pencil-square"
+                        style="font-size: 1.2em"
+                      ></i
+                    ></a>
+                    <a
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      (click)="removeField(item)"
+                      title="eliminar"
+                      class="d-block mx-2 cursor ml-5"
+                    >
+                      <i
+                        class="bi bi-trash-fill ml-6"
+                        style="font-size: 1.2em"
+                      ></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<ng-template #mymodal let-modal class="modal-dialog-centered">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Field</h4>
+    <button
+      type="button"
+      class="btn btn-danger"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true"><i class="bi bi-x"></i></span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="card">
+      <div class="card-body">
+        <form class="row g-3" [formGroup]="fieldForm">
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Type of Field</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputName5"
+              formControlName="field_type"
+            />
+          </div>
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Field Characteristic</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputName5"
+              formControlName="field_characteristic"
+            />
+          </div>
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Field Location</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputName5"
+              formControlName="field_location"
+            />
+          </div>
+          <!-- <div class="col-md-9">
+            <label class="form-label">Imagen</label>
+            <input
+              type="file"
+              class="form-control"
+              id="inputName5"
+              formControlName="imagen"
+            /> use in profiles instead
+          </div> -->
+          
+          
+          <div class="col-md-4">
+            <label for="inputState" class="form-label">Field Rating</label>
+            <select
+              id="inputState"
+              class="form-select"
+              formControlName="field_location"
+            >
+              <option selected value="">Choose...</option>
+              <!-- <option *ngFor="let f of fieldTypes" value={{f.id}}>{{f.field_location}}</option> change to ratings -->
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      id="closeModal"
+      (click)="saveField()"
+    >
+      Guardar
+    </button>
+  </div>
+</ng-template>
+

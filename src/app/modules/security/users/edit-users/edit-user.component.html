@@ -1,0 +1,78 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Form Layouts</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item">Forms</li>
+        <li class="breadcrumb-item active">Layouts</li>
+      </ol>
+    </nav>
+  </div>
+  <section class="section">
+    <div class="card">
+      <div class="card-body">
+        <form class="row g-3" [formGroup]="userForm">
+          <div class="col-md-6">
+            <label for="inputName5" class="form-label">id</label>
+            <input
+              type="text"
+              class="form-control"
+              readonly
+              id="inputName5"
+              formControlName="id"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="inputName5" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputName5"
+              formControlName="name"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="inputEmail5" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="inputEmail5"
+              formControlName="email"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputState" class="form-label">Role</label>
+            <select
+              id="inputState"
+              class="form-select"
+              formControlName="role_id"
+            >
+              <option selected>Choose...</option>
+              <option *ngFor="let l of rolList" value="{{ l.id }}">
+                {{ l.name }}
+              </option>
+            </select>
+          </div>
+          <div class="text-center">
+            <button
+              type="submit"
+              class="btn btn-primary mx-2"
+              (click)="editUser()"
+            >
+              Guardar
+            </button>
+            <button
+              type="button"
+              routerLink="/security/list-user"
+              class="btn btn-secondary"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>

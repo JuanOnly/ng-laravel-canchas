@@ -1,0 +1,118 @@
+<aside id="sidebar" class="sidebar">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/dashboard">
+        <i class="bi bi-grid"></i> <span>Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        data-bs-target="#components-nav"
+        data-bs-toggle="collapse"
+        href="#"
+      >
+        <i class="bi bi-shield-lock-fill"></i><span>Security</span
+        ><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul
+        id="components-nav"
+        class="nav-content collapse"
+        data-bs-parent="#sidebar-nav"
+      >
+        <li>
+          <a routerLink="/security/list-user">
+            <i class="bi bi-record" style="font-size: 1rem"></i
+            ><span>Users</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/security/list-rol">
+            <i class="bi bi-record" style="font-size: 1rem"></i
+            ><span>Roles</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/security/permission">
+            <i class="bi bi-record" style="font-size: 1rem"></i
+            ><span>Permission</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        data-bs-target="#forms-nav"
+        data-bs-toggle="collapse"
+        href="#"
+      >
+        <i class="bi bi-journal-text"></i><span>Parameters</span
+        ><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul
+        id="forms-nav"
+        class="nav-content collapse"
+        data-bs-parent="#sidebar-nav"
+      >
+        <li>
+          <a routerLink="/parameters/location-list">
+            <i class="bi bi-record" style="font-size: 1rem"></i
+            ><span>Profiles New</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/parameters/team-list">
+            <i class="bi bi-record" style="font-size: 1rem"></i
+            ><span>Teams</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/parameters/fieldType-list">
+            <i class="bi bi-record" style="font-size: 1rem"></i
+            ><span>Ratings New</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/parameters/field-list">
+            <i class="bi bi-record" style="font-size: 1rem"></i
+            ><span>Fields</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/parameters/sportType-list">
+            <i class="bi bi-record" style="font-size: 1rem"></i
+            ><span>Anything Missing??</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        data-bs-target="#tables-nav"
+        data-bs-toggle="collapse"
+        href="#"
+      >
+        <i class="bi bi-person-circle"></i><span>Reservations</span
+        ><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul
+        id="tables-nav"
+        class="nav-content collapse"
+        data-bs-parent="#sidebar-nav"
+      >
+        <li>
+          <a routerLink="/tables-general">
+            <i class="bi bi-circle"></i><span>General Tables</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/tables-data">
+            <i class="bi bi-circle"></i><span>Data Tables</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</aside>

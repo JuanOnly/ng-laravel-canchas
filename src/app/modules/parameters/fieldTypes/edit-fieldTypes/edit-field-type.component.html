@@ -1,0 +1,31 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+     <h1>Field Type</h1>
+     <nav>
+        <ol class="breadcrumb">
+           <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+           <li class="breadcrumb-item">Forms</li>
+           <li class="breadcrumb-item active">Layouts</li>
+        </ol>
+     </nav>
+  </div>
+  <section class="section">
+     <div class="row">
+        <div class="col-lg-6">
+           <div class="card">
+              <div class="card-body">
+                 <h5 class="card-title">Edit FieldType</h5>
+                 <form class="row g-3" [formGroup]="dataForm">
+                  <div class="col-12"> <label for="inputNanme4" class="form-label">ID</label> <input type="text" formControlName="id" class="form-control" id="inputNanme4"></div>
+                    <div class="col-12"> <label for="inputNanme4" class="form-label">Nombre</label> <input type="text" formControlName="nombre" class="form-control" id="inputNanme4"></div>
+                    <div class="col-12"> <label for="inputEmail4" class="form-label">Descripcion</label> <input type="email" formControlName="descripcion" class="form-control" id="inputEmail4"></div>
+                    <div class="col-12"> <label for="inputPassword4" class="form-label">Forma</label> <input type="text" formControlName="forma" class="form-control" id="inputPassword4"></div>
+                    <div class="col-12"> <label for="inputAddress" class="form-label">Superficie</label> <input type="text"formControlName="superficie" class="form-control" id="inputAddress"></div>
+                    <div class="text-center"> <button type="submit" class="btn btn-primary mx-2" (click)="editFieldType()">Guardar</button> <button type="button" routerLink="/parameters/fieldType-list" class="btn btn-secondary">Cancelar</button></div>
+                 </form>
+              </div>
+           </div>
+      </div>
+    </div>
+    </section>
+</main>

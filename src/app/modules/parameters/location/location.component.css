@@ -1,0 +1,8 @@
+#color{
+  background-color: rebeccapurple;
+}
+
+.col{
+  display: flex;
+  justify-content: center !important;
+}

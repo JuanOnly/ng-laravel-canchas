@@ -1,0 +1,97 @@
+<main id="main" class="main">
+  <!-- cargando -->
+  <div class="card-body d-flex justify-content-center" *ngIf="cargando">
+    <div  class="spinner-border text-primary" role="status">
+      <span class="visually-hidden text-center">Loading...</span>
+     </div>
+ </div>
+<div class="pagetitle">
+  <h1>List locations</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item">Tables</li>
+      <li class="breadcrumb-item active">Data</li>
+    </ol>
+  </nav>
+</div>
+<section class="section">
+  <div class="row">
+    <div class="col-lg-12 p-2">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-end w-auto m-2">
+            <div class="text-right">
+              <!-- modal click -->
+              <button class="btn btn-success w-auto" (click)="open(myModal)">
+                <i class="bi bi-plus-circle-fill" style="font-size: 1.2em;"></i>
+                ADD SPORTTYPE
+              </button>
+            </div>
+          </div>
+          <table class="table datatable">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Canchas</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- NG FOR -->
+              <tr *ngFor="let item of sportTypeList">
+                <th scope="row">{{item.id}}</th>
+                <td>{{item.rating}}</td>
+                <td>{{item.comment}} </td>
+                <td>{{item.field?.field_location}}</td>
+                <td class="d-flex text-center  justify-content-start w-auto text-nowrap">
+                  <a data-bs-toggle="tooltip" data-bs-placement="top" title="editar" class="d-block cursor mx-2" routerLink="/parameters/fieldType-edit/{{0}}">
+                    <i class="bi bi-pencil-square" style="font-size: 1.2em"></i></a>
+                  <a data-bs-toggle="tooltip" data-bs-placement="top" title="eliminar"
+                    class="d-block mx-2 cursor ml-5" (click)="removeSportType(item)">
+                    <i class="bi bi-trash-fill ml-6" style="font-size: 1.2em"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<ng-template #myModal let-modal class="modal-dialog-centered">
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Add FieldType</h4>
+  <button type="button" class="btn btn-danger" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true"><i class="bi bi-x"></i></span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="card">
+    <div class="card-body">
+       <form class="row g-3" [formGroup]="sportTypeForm ">
+          <div class="col-12"> <label for="inputNanme4" class="form-label">Nombre</label> <input  formControlName="nombre" type="text" class="form-control" id="inputNanme4"></div>
+          <div class="col-12"> <label for="inputEmail4" class="form-label">Descripcion</label> <input formControlName="descripcion" type="text" class="form-control" id="inputEmail4"></div>
+          <div class="col-12">
+             <label for="inputState" class="form-label">Field</label>
+             <select id="inputState" class="form-select" formControlName="cancha_id">
+               <option selected>Choose...</option>
+               <option *ngFor="let f of fieldList" value="{{f.id}}">{{f.field_location}}</option>
+             </select>
+            </div>
+       </form>
+    </div>
+ </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" id="closeModal" (click)="saveSporType()">Guardar</button>
+</div>
+</ng-template>
+
+
+
+
