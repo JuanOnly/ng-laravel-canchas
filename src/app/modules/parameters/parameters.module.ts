@@ -13,7 +13,7 @@ import { FieldComponent } from './fields/field.component';
 import { FieldEditComponent } from './fields/field-edit/field-edit.component';
 import { SportTypeComponent } from './sportTypes/sport-type.component';
 import { RatingsComponent } from './ratings/ratings.component';
-import { ReservationComponent } from './reservation/reservation.component';
+import { ReservationComponent } from './reservations/reservation.component';
 
 
 @NgModule({
