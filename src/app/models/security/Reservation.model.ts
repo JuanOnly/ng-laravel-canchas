@@ -1,6 +1,3 @@
-import { FieldModel } from '../parameters/Field.model';
-import { TeamModel } from '../parameters/Team.model';
-
 export class ReservationModel {
   constructor(
     public id?: bigint,

@@ -21,7 +21,7 @@ export class RatingService {
   }
 
   getRecordList(): Observable<RatingModel[]> {
-    console.log(`${this.url}/api/Ratings`);
+    console.log(`${this.url}/api/ratings`);
     return this.http.get<RatingModel[]>(`${this.url}/api/ratings`);
   }
 
