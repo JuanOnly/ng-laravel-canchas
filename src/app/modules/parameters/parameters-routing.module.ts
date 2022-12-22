@@ -9,7 +9,6 @@ import { LocationComponent } from './location/location.component';
 import { SportTypeComponent } from './sportTypes/sport-type.component';
 import { TeamComponent } from './team/team.component';
 import { RatingsComponent } from './ratings/ratings.component';
-import { ReservationComponent } from './reservations/reservation.component';
 const routes: Routes = [
   {
     path: 'location-list',
@@ -47,10 +46,6 @@ const routes: Routes = [
   //   path: 'field-edit:/id',
   //   component:
   // }
-  {
-    path: 'reservations',
-    component: ReservationComponent,
-  },
   {
     path: 'ratings',
     component: RatingsComponent,

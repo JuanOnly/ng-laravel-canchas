@@ -37,8 +37,10 @@ const routes: Routes = [
   },
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { component: NotFoundComponent, path: 'not_found' },
-  { path: '**', redirectTo: 'not_found' },
+  //{path:'**',component:NotFoundComponent}
+  { component: NotFoundComponent, path: "not_found" },
+  { path: "**", redirectTo: "not_found" },
+
 ];
 
 @NgModule({

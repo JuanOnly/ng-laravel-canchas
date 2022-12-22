@@ -26,8 +26,8 @@ import { ReservationComponent } from './reservations/reservation.component';
     FieldComponent,
     FieldEditComponent,
     SportTypeComponent,
-    RatingsComponent,
-    ReservationComponent
+    ReservationComponent,
+    RatingsComponent
   ],
   imports: [
     CommonModule,
