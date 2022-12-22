@@ -1,0 +1,164 @@
+<main id="main" class="main">
+  <!-- <div class="row  animated fadeIn fast" *ngIf="cargando">
+		<div class="col-12">
+			<div class="alert alert-success text-center" role="alert">
+			  <h4 class="alert-heading"></h4>
+			  <i class="fa fa-spin fa-refresh fa-2x"></i>
+			  <p class="mb-0">Por favor espere</p>
+			</div>
+		  </div>
+		</div> -->
+
+  <div class="card-body d-flex justify-content-center" *ngIf="cargando">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden text-center">Loading...</span>
+    </div>
+  </div>
+  <div class="pagetitle">
+    <h1>List Reservations</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item">Tables</li>
+        <li class="breadcrumb-item active">Data</li>
+      </ol>
+    </nav>
+  </div>
+  <section class="section" *ngIf="!cargando">
+    <div class="row">
+      <div class="col-lg-12 p-2">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-end w-auto m-2">
+              <div class="text-right">
+                <button class="btn btn-success w-auto" (click)="open(mymodal)">
+                  <i
+                    class="bi bi-plus-circle-fill"
+                    style="font-size: 1.2em"
+                  ></i>
+                  ADD RESERVATION
+                </button>
+              </div>
+            </div>
+            <table class="table datatable">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Team ID</th>
+                  <th scope="col">Field ID</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Hour</th>
+                  <th scope="col">Experation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of reservationsList">
+                  <th scope="row">{{ item.id }}</th>
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.team_id }}</td>
+                  <td>{{ item.field_id }}</td>
+                  <td>{{ item.date }}</td>
+                  <td>{{ item.hour }}</td>
+                  <td>{{ item.experation }}</td>
+                  <td
+                    class="d-flex text-center justify-content-start w-auto text-nowrap"
+                  >
+                    <a
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      (click)="removeReservation(item)"
+                      title="eliminar"
+                      class="d-block mx-2 cursor ml-5"
+                    >
+                      <i
+                        class="bi bi-trash-fill ml-6"
+                        style="font-size: 1.2em"
+                      ></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<ng-template #mymodal let-modal class="modal-dialog-centered">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Field</h4>
+    <button
+      type="button"
+      class="btn btn-danger"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true"><i class="bi bi-x"></i></span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="card">
+      <div class="card-body">
+        <form class="row g-3" [formGroup]="reservationForm">
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Team ID</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputName5"
+              formControlName="team_id"
+            />
+          </div>
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Field ID</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputName5"
+              formControlName="field_id"
+            />
+          </div>
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Date</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputName5"
+              formControlName="date"
+            />
+          </div>
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Hour</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputName5"
+              formControlName="hour"
+            />
+          </div>
+          <div class="col-md-12">
+            <label for="inputName5" class="form-label">Experation</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputName5"
+              formControlName="experation"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      id="closeModal"
+      (click)="saveReservation()"
+    >
+      Guardar
+    </button>
+  </div>
+</ng-template>
