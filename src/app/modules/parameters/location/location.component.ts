@@ -22,16 +22,8 @@ export class LocationComponent implements OnInit {
     private locationService: LocationService
   ) {}
   ngOnInit(): void {
-    this.locationForm = this.fb.group({
-      user_id: ['', Validators.required],
-      phone_number: ['', Validators.required],
-      url_facebook: ['', Validators],
-      url_avatar: ['', Validators],
-    });
-
     this.getLocations();
   }
-
   getLocations() {
     this.cargando = true;
     this.locationService.getRecordList().subscribe({
@@ -40,7 +32,8 @@ export class LocationComponent implements OnInit {
         console.log(this.locations);
         this.cargando = false;
       },
-      error: (err) => console.log('error' + err),
+      error: (err) =>
+        Swal.fire('error', 'No se pudieron obtener los reservation', 'error'),
     });
   }
 
@@ -90,11 +83,6 @@ export class LocationComponent implements OnInit {
       showCancelButton: true,
     });
   }
-
-  // if(value?.trim().length! > 0){
-  //   this.hospitalService.crearHospital(value!).subscribe( (resp:any) => {
-  //       this.hospitales.push(resp.hospital)
-  //   })
 
   open(content: any) {
     this.modalService
