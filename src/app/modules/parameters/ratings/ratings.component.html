@@ -6,7 +6,7 @@
   </div>
 
   <div class="pagetitle">
-    <h1>Users</h1>
+    <h1>List locations</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
@@ -27,7 +27,7 @@
                     class="bi bi-plus-circle-fill"
                     style="font-size: 1.2em"
                   ></i>
-                  ADD PERMISSION
+                  ADD RATINGS
                 </button>
               </div>
             </div>
@@ -35,14 +35,18 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">URL</th>
+                  <th scope="col">Field ID</th>
+                  <th scope="col">Rating</th>
+                  <th scope="col">Comment</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let item of PermissionList">
+                <tr *ngFor="let item of Ratings">
                   <th scope="row">{{ item.id }}</th>
-                  <td>{{ item.url }}</td>
-                  <td>{{ item.method }}</td>
+                  <td>{{ item.field_id }}</td>
+                  <td>{{ item.rating }}</td>
+                  <td>{{ item.comment }}</td>
+
                   <td
                     class="d-flex text-center justify-content-start w-auto text-nowrap"
                   >
@@ -51,7 +55,7 @@
                       data-bs-placement="top"
                       title="editar"
                       class="d-block cursor mx-2"
-                      routerLink="/security/permissions/{{ item.id }}"
+                      routerLink="/parameters/ratings-edit/{{ item.id }}"
                     >
                       <i
                         class="bi bi-pencil-square"
@@ -61,7 +65,7 @@
                     <a
                       data-bs-toggle="tooltip"
                       data-bs-placement="top"
-                      (click)="deletePermission(item)"
+                      (click)="eliminarRatings(item)"
                       title="eliminar"
                       class="d-block mx-2 cursor ml-5"
                     >
@@ -80,10 +84,9 @@
     </div>
   </section>
 </main>
-
 <ng-template #mymodal let-modal class="modal-dialog-centered">
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Add Permission</h4>
+    <h4 class="modal-title" id="modal-basic-title">Add Rating</h4>
     <button
       type="button"
       class="btn btn-danger"
@@ -96,23 +99,32 @@
   <div class="modal-body">
     <div class="card">
       <div class="card-body">
-        <form class="row g-3" [formGroup]="PermissionForm">
-          <div class="col-md-12">
-            <label for="inputName5" class="form-label">URL</label>
+        <form class="row g-3" [formGroup]="RatingForm">
+          <div class="col-12">
+            <label for="inputNanme4" class="form-label">field id</label>
             <input
+              formControlName="field_id"
               type="text"
               class="form-control"
-              id="inputName5"
-              formControlName="url"
+              id="inputNanme4"
             />
           </div>
-          <div class="col-md-12">
-            <label for="inputEmail5" class="form-label">Method</label>
+          <div class="col-12">
+            <label for="inputEmail4" class="form-label">Rating</label>
             <input
-              type="email"
+              formControlName="rating"
+              type="text"
               class="form-control"
-              id="inputEmail5"
-              formControlName="method"
+              id="inputEmail4"
+            />
+          </div>
+          <div class="col-12">
+            <label for="inputEmail4" class="form-label">Comment</label>
+            <input
+              formControlName="comment"
+              type="text"
+              class="form-control"
+              id="inputEmail4"
             />
           </div>
         </form>
@@ -124,7 +136,7 @@
       type="button"
       class="btn btn-outline-dark"
       id="closeModal"
-      (click)="savePermission()"
+      (click)="saveRatings()"
     >
       Guardar
     </button>

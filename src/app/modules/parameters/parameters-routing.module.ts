@@ -8,6 +8,7 @@ import { EditLocationComponent } from './location/edit-location/edit-location.co
 import { LocationComponent } from './location/location.component';
 import { SportTypeComponent } from './sportTypes/sport-type.component';
 import { TeamComponent } from './team/team.component';
+import { RatingsComponent } from './ratings/ratings.component';
 
 const routes: Routes = [
   {
@@ -25,10 +26,10 @@ const routes: Routes = [
     component: TeamComponent
 
   },
-  {
-    path: 'fieldType-list',
-    component: FieldTypeComponent
-  },
+  // {
+  //   path: 'fieldType-list',
+  //   component: FieldTypeComponent
+  // },
 
   {
     path: 'fieldType-edit/:id',
@@ -48,8 +49,8 @@ const routes: Routes = [
   //   component:
   // }
   {
-    path:'sportType-list',
-    component:SportTypeComponent
+    path:'ratings',
+    component:RatingsComponent
   }
 
 ];
