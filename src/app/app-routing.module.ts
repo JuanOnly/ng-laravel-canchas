@@ -31,7 +31,6 @@ const routes: Routes = [
   },
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  //{path:'**',component:NotFoundComponent}
   { component: NotFoundComponent, path: "not_found" },
   { path: "**", redirectTo: "not_found" },
 
