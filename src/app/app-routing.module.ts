@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthRoutingModule } from './auth/auth-routing.module';
+import { ReservationComponent } from './modules/reservations/reservation.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NotFoundComponent } from './pages/notFound404/not-found.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -30,8 +31,12 @@ const routes: Routes = [
     component: ProfileComponent
   },
 
+  {
+    path: 'reservation',
+    loadChildren: () => import('./modules/reservations/reservation.module').then(x => x.ReservationModule)
+  },
+
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  //{path:'**',component:NotFoundComponent}
   { component: NotFoundComponent, path: "not_found" },
   { path: "**", redirectTo: "not_found" },
 

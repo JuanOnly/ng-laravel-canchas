@@ -6,28 +6,27 @@ import { EditUserComponent } from './users/edit-users/edit-user.component';
 import { UserComponent } from './users/user.component';
 
 const routes: Routes = [
-
   {
     path: 'list-user',
-    component: UserComponent
+    component: UserComponent,
   },
   {
-    path:'edit-user/:id',
-    component:EditUserComponent
+    path: 'edit-user/:id',
+    component: EditUserComponent,
   },
   {
-    path:'list-rol',
-    component:RolsComponent
+    path: 'list-rol',
+    component: RolsComponent,
   },
-  {
-    path:'permission',
-    component:PermissionComponent
-  }
 
+  {
+    path: 'permissions',
+    component: PermissionComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class SecurityRoutingModule { }
+export class SecurityRoutingModule {}

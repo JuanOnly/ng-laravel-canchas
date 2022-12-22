@@ -8,54 +8,52 @@ import { EditLocationComponent } from './location/edit-location/edit-location.co
 import { LocationComponent } from './location/location.component';
 import { SportTypeComponent } from './sportTypes/sport-type.component';
 import { TeamComponent } from './team/team.component';
-
+import { RatingsComponent } from './ratings/ratings.component';
 const routes: Routes = [
   {
     path: 'location-list',
-    component: LocationComponent
+    component: LocationComponent,
   },
 
   {
     path: 'location-edit/:id',
-    component: EditLocationComponent
+    component: EditLocationComponent,
   },
 
   {
     path: 'team-list',
-    component: TeamComponent
-
+    component: TeamComponent,
   },
-  {
-    path: 'fieldType-list',
-    component: FieldTypeComponent
-  },
+  // {
+  //   path: 'fieldType-list',
+  //   component: FieldTypeComponent
+  // },
 
   {
     path: 'fieldType-edit/:id',
-    component: EditFieldTypeComponent
+    component: EditFieldTypeComponent,
   },
 
   {
     path: 'field-list',
-    component: FieldComponent
+    component: FieldComponent,
   },
   {
     path: 'field-edit',
-    component: FieldEditComponent
+    component: FieldEditComponent,
   },
   // {
   //   path: 'field-edit:/id',
   //   component:
   // }
   {
-    path:'sportType-list',
-    component:SportTypeComponent
-  }
-
+    path: 'ratings',
+    component: RatingsComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ParametersRoutingModule { }
+export class ParametersRoutingModule {}

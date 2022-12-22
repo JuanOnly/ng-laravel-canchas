@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-chPublicas';
+  title = 'Parks & Recreations';
 
   constructor(public  _router: Router) {
       this.getValueRoute()

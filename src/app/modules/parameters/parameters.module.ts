@@ -12,6 +12,8 @@ import { EditFieldTypeComponent } from './fieldTypes/edit-fieldTypes/edit-field-
 import { FieldComponent } from './fields/field.component';
 import { FieldEditComponent } from './fields/field-edit/field-edit.component';
 import { SportTypeComponent } from './sportTypes/sport-type.component';
+import { RatingsComponent } from './ratings/ratings.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { SportTypeComponent } from './sportTypes/sport-type.component';
     EditFieldTypeComponent,
     FieldComponent,
     FieldEditComponent,
-    SportTypeComponent
+    SportTypeComponent,
+    RatingsComponent,
+    ReservationComponent
   ],
   imports: [
     CommonModule,
