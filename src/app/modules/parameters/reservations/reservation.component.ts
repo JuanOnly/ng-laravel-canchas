@@ -24,7 +24,7 @@ export class ReservationComponent {
   ) {}
   ngOnInit(): void {
     this.reservationForm = this.fb.group({
-      reservation_id: ['', [Validators.required]],
+      team_id: ['', [Validators.required]],
       field_id: ['', [Validators.required]],
       date: ['', [Validators.required]],
       hour: ['', [Validators.required]],
@@ -34,6 +34,8 @@ export class ReservationComponent {
   }
 
   getReservations() {
+    console.log('In Reservation components');
+
     this.cargando = true;
     this.reservationService.getRecordList().subscribe({
       next: (resp: ReservationModel[]) => {
@@ -60,7 +62,6 @@ export class ReservationComponent {
         Swal.fire('error', 'No se pudo crear el registro', 'error'),
     });
   }
-
 
   removeReservation(reservation: ReservationModel) {
     Swal.fire({
