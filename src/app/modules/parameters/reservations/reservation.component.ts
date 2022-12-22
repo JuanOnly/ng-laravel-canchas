@@ -34,8 +34,6 @@ export class ReservationComponent {
   }
 
   getReservations() {
-    console.log('In Reservation components');
-
     this.cargando = true;
     this.reservationService.getRecordList().subscribe({
       next: (resp: ReservationModel[]) => {
